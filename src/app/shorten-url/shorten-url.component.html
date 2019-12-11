@@ -1,0 +1,31 @@
+
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary" [containerInside]="false">
+    <mdb-navbar-brand><a class="navbar-brand" href="#">Shorten URL</a></mdb-navbar-brand>
+</mdb-navbar>
+
+<div class = "container">
+    <mdb-card>
+        <!--Card image-->
+        <!--Card content-->
+        <mdb-card-body>
+
+          <!--Title-->
+          <mdb-card-title>
+            <h4>URL Shortener</h4>
+          </mdb-card-title>
+
+          <!--Text-->
+          <div class="md-form">
+              <input mdbInput type="text" name="text" id="form1"  [(ngModel)]="url"class="form-control">
+              <label for="form1" class="">Enter URL to be shrunk</label>
+            </div>
+            <p  *ngIf="hashasLink"> https://shrinkurl.azurewebsites.net/{{newURL}} </p>
+          <button mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect  (click)="ShortenURL()" >Shorten!</button>
+          <button  *ngIf="!hashasLink" mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect (click)="followLink()" disabled >Follow Link</button>
+          <button  *ngIf="hashasLink" mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect (click)="followLink()" >Follow Link</button>
+        </mdb-card-body>
+      </mdb-card>
+
+</div>
+
+
