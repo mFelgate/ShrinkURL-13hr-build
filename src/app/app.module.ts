@@ -7,6 +7,8 @@ import { ShortenURLComponent } from './shorten-url/shorten-url.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { RerouteComponent } from './reroute/reroute.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { RerouteComponent } from './reroute/reroute.component';
     BrowserModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

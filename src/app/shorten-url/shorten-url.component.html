@@ -19,6 +19,9 @@
               <input mdbInput type="text" name="text" id="form1"  [(ngModel)]="url"class="form-control">
               <label for="form1" class="">Enter URL to be shrunk</label>
             </div>
+            <div *ngIf="loading"class="row">
+              <img  class="spinner" src = '../../assets/spinner2.gif'>
+            </div>
             <h5 *ngIf="hashasLink">Copy the Link Below</h5>
             <p  *ngIf="hashasLink"> https://shrinkurl.azurewebsites.net/{{newURL}} </p>
           <button mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect  (click)="ShortenURL()" >Shorten!</button>

@@ -5,6 +5,8 @@ import {
 import { ShortUrlService } from '../../services/short-url.service';
 import { TinyURL } from '../../models/url';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-shorten-url',
   templateUrl: './shorten-url.component.html',
@@ -15,23 +17,37 @@ export class ShortenURLComponent implements OnInit {
   private url = '';
   private newURL: string;
   private hashasLink = false;
+  private loading = false;
+  private error: string;
+
   constructor(
     private shortenURL: ShortUrlService,
     private route: ActivatedRoute,
-    private router: Router) {}
+    private router: Router,
+    private toastr: ToastrService) {}
 
   ngOnInit() {}
 
   ShortenURL() {
-    // tslint:disable-next-line:whitespace
-    this.url = this.url.replace(/^https?:\/\//,'');
-    this.url = encodeURIComponent(this.url);
-    this.shortenURL.convertToShortUrl(this.url).subscribe(
-      res => {
-        this.newURL = res.tinyUrl;
-        this.hashasLink = true;
-      }
-    );
+    if (this.url.length > 2200) {
+      this.toastr.error('Opps!', 'URL is to Long');
+    } else {
+      this.loading = true;
+      this.url = this.url.replace(/^https?:\/\//, '');
+      const encodedUrl = encodeURIComponent(this.url);
+      this.shortenURL.convertToShortUrl(encodedUrl).subscribe(
+        res => {
+          this.newURL = res.tinyUrl;
+          this.hashasLink = true;
+          this.loading = false;
+        },
+        error => {
+          this.toastr.error('Opps!', 'Failed Shrinking URL');
+          console.log(error);
+        }
+      );
+    }
+
   }
 
   followLink() {
