@@ -14,10 +14,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ShortenURLComponent implements OnInit {
 
-  private url = '';
-  private newURL: string;
-  private hashasLink = false;
-  private loading = false;
+  public url = '';
+  public newURL: string;
+  public hashasLink = false;
+  public loading = false;
   private error: string;
 
   constructor(

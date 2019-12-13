@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ShortUrlService {
-  public apiRoot = 'https://createminiurl.azurewebsites.net/';
-  // public apiRoot = 'https://localhost:44324/';
+  // public apiRoot = 'https://createminiurl.azurewebsites.net/';
+  public apiRoot = 'https://localhost:44324/';
   public urlObj: TinyURL = new TinyURL('', '');
   constructor(private http: HttpClient) {
   }
