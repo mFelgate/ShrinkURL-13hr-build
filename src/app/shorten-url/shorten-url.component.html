@@ -16,7 +16,7 @@
 
           <!--Text-->
           <div class="md-form">
-              <input mdbInput type="text" name="text" id="form1" (onkeypress)="isUrl()"  [(ngModel)]="url"class="form-control">
+              <input mdbInput type="text" name="text" id="form1"  [(ngModel)]="url"class="form-control">
               <label for="form1" class="">Enter URL to be shrunk</label>
             </div>
             <div *ngIf="loading"class="row">

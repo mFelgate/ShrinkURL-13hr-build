@@ -28,13 +28,6 @@ export class ShortenURLComponent implements OnInit {
 
   ngOnInit() {}
 
-  isUrl(): boolean {
-    if ( this.url.length > 0 ) {
-      return true;
-    }
-    return false;
-  }
-
   ShortenURL() {
     if (this.url.length > 2200) {
       this.toastr.error('Opps!', 'URL is to Long');
