@@ -28,9 +28,18 @@ export class ShortenURLComponent implements OnInit {
 
   ngOnInit() {}
 
+  isUrl(): boolean {
+    if ( this.url.length > 0 ) {
+      return true;
+    }
+    return false;
+  }
+
   ShortenURL() {
     if (this.url.length > 2200) {
       this.toastr.error('Opps!', 'URL is to Long');
+    } else if (this.url.length <= 0) {
+      this.toastr.error('Opps!', 'URL fields is empty');
     } else {
       this.loading = true;
       this.url = this.url.replace(/^https?:\/\//, '');
@@ -43,6 +52,7 @@ export class ShortenURLComponent implements OnInit {
         },
         error => {
           this.toastr.error('Opps!', 'Failed Shrinking URL');
+          this.loading = false;
           console.log(error);
         }
       );
