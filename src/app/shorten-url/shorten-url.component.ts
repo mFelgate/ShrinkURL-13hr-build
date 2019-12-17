@@ -26,7 +26,7 @@ export class ShortenURLComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService) {}
 
-  ngOnInit() {}
+  ngOnInit( ) { this.url = ''; }
 
   ShortenURL() {
     // The url variabled is binded to the input field.
