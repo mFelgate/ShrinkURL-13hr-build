@@ -21,6 +21,8 @@ export class RerouteComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    // Get id from route, check to see if it matches what the server expects,
+    // then use it to get the full url
     const id = this.route.snapshot.paramMap.get('id');
     const safeRedirect = new RegExp('^[a-z0-9]*$');
     if (id.match(safeRedirect)) {
