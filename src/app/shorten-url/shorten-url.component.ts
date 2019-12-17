@@ -46,7 +46,6 @@ export class ShortenURLComponent implements OnInit {
         error => {
           this.toastr.error('Opps!', 'Failed Shrinking URL');
           this.loading = false;
-          console.log(error);
         }
       );
     }
