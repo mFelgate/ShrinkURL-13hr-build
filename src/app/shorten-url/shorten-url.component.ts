@@ -16,7 +16,7 @@ export class ShortenURLComponent implements OnInit {
 
   public url = '';
   public newURL: string;
-  public hashasLink = false;
+  public hasLink = false;
   public loading = false;
   private error: string;
 
@@ -32,7 +32,6 @@ export class ShortenURLComponent implements OnInit {
     // The url variabled is binded to the input field.
     // when the button is clicked, check to see if it is a reasonable size,
     // then encode it and send it to the server so it can be added to the database
-
     if (this.url.length > 2200) {
       this.toastr.error('Opps!', 'URL is to Long');
     } else if (this.url.length <= 0) {
@@ -46,7 +45,7 @@ export class ShortenURLComponent implements OnInit {
       this.shortenURL.convertToShortUrl(encodedUrl).subscribe(
         res => {
           this.newURL = res.tinyUrl;
-          this.hashasLink = true;
+          this.hasLink = true;
           this.loading = false;
         },
         error => {

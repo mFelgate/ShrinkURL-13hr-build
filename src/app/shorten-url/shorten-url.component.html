@@ -22,8 +22,8 @@
             <div *ngIf="loading"class="row">
               <img  class="spinner" src = '../../assets/spinner2.gif'>
             </div>
-            <h5 *ngIf="hashasLink">Copy the Link Below</h5>
-            <p  *ngIf="hashasLink"> https://shrinkurl.azurewebsites.net/{{newURL}} </p>
+            <h5 *ngIf="hasLink">Copy the Link Below</h5>
+            <p  *ngIf="hasLink"> https://shrinkurl.azurewebsites.net/{{newURL}} </p>
 
           <button mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect  (click)="ShortenURL()" >Shorten!</button>
           <button  *ngIf="hashasLink" mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect (click)="followLink()" >Follow Link</button>
