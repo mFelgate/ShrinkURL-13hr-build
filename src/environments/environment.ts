@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiRoot: 'https://createminiurl.azurewebsites.net/'
+  apiRoot: 'https://tinyurlapi.azurewebsites.net/'
   // apiRoot: 'https://localhost:44324/'
 };
 

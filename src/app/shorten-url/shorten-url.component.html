@@ -26,7 +26,7 @@
             <p  *ngIf="hasLink"> https://shrinkurl.azurewebsites.net/{{newURL}} </p>
 
           <button mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect  (click)="ShortenURL()" >Shorten!</button>
-          <button  *ngIf="hashasLink" mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect (click)="followLink()" >Follow Link</button>
+          <button  *ngIf="hasLink" mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect (click)="followLink()" >Follow Link</button>
         </mdb-card-body>
       </mdb-card>
 

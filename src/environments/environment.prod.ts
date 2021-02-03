@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiRoot: 'https://createminiurl.azurewebsites.net/'
+  apiRoot: 'https://tinyurlapi.azurewebsites.net/'
 };
