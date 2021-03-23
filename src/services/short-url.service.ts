@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TinyURL } from 'src/models/url';
+import { shortenedUrl, TinyURL } from 'src/models/url';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 // import { environment } from '../environments';
@@ -12,7 +12,17 @@ export class ShortUrlService {
   constructor(private http: HttpClient) {
   }
 
-  convertToShortUrl(longUrl: string): Observable<TinyURL> {
+  convertToShortUrlRails(longUrl: string): Observable<shortenedUrl> {
+
+    return this.http.post<shortenedUrl>('http://localhost:3000/urls.json', {"longUrl": longUrl});
+    // return this.http.post<TinyURL>(environment.apiRoot + '/long', this.urlObj);
+  }
+  getFullUrlRails(shortUrl: string): Observable<shortenedUrl> {
+
+    return this.http.post<shortenedUrl>('http://localhost:3000/urls/shortUrl.json', {"shortUrl": shortUrl});
+    // return this.http.post<TinyURL>(environment.apiRoot + '/long', this.urlObj);
+  }
+  convertToShortUrl (longUrl: string): Observable<TinyURL> {
     this.urlObj.fullUrl = longUrl;
     this.urlObj.tinyUrl = '';
     return this.http.post<TinyURL>(environment.apiRoot + '/long', this.urlObj);
@@ -22,4 +32,6 @@ export class ShortUrlService {
     this.urlObj.tinyUrl = shortUrl;
     return this.http.post<TinyURL>(environment.apiRoot + '/short', this.urlObj);
   }
+
+
 }
