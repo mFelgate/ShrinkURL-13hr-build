@@ -14,12 +14,12 @@ export class ShortUrlService {
 
   convertToShortUrlRails(longUrl: string): Observable<shortenedUrl> {
 
-    return this.http.post<shortenedUrl>('http://localhost:3000/urls.json', {"longUrl": longUrl});
+    return this.http.post<shortenedUrl>(environment.railsApiRoot + '/urls.json', {"longUrl": longUrl});
     // return this.http.post<TinyURL>(environment.apiRoot + '/long', this.urlObj);
   }
   getFullUrlRails(shortUrl: string): Observable<shortenedUrl> {
 
-    return this.http.post<shortenedUrl>('http://localhost:3000/urls/shortUrl.json', {"shortUrl": shortUrl});
+    return this.http.post<shortenedUrl>(environment.railsApiRoot +'/urls/shortUrl.json', {"shortUrl": shortUrl});
     // return this.http.post<TinyURL>(environment.apiRoot + '/long', this.urlObj);
   }
   convertToShortUrl (longUrl: string): Observable<TinyURL> {
