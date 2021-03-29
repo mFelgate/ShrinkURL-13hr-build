@@ -40,7 +40,7 @@ export class RerouteComponent implements OnInit {
       else {
         this.shortUrlService.getFullUrlRails(id).subscribe(
           res => {
-            window.location.href = 'https://' + decodeURIComponent(decodeURIComponent(res.longUrl));
+            window.location.href = 'https://' + (decodeURIComponent(res.longUrl));
           },
           error => {
             this.toastr.error('Opps!', 'Could not find URL');
