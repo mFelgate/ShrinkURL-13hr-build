@@ -1,6 +1,12 @@
 
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary" [containerInside]="false">
     <mdb-navbar-brand><a class="navbar-brand" href="#">Shorten URL</a></mdb-navbar-brand>
+    <div class="navbar-nav ml-auto">
+      <select (change)="recordChange()" class="nav-item  mdbWavesEffect browser-default custom-select"  class="form-control" [(ngModel)]="api">
+        <option *ngFor= "let api of apis" [ngValue]="api.api">{{api.api}}</option>
+      </select>
+    </div>
+
 </mdb-navbar>
 
 <div class = "container">
@@ -23,7 +29,7 @@
               <img  class="spinner" src = '../../assets/spinner2.gif'>
             </div>
             <h5 *ngIf="hasLink">Copy the Link Below</h5>
-            <p  *ngIf="hasLink"> https://shrinkurl.azurewebsites.net/{{newURL}} </p>
+            <p  *ngIf="hasLink"> https://cyberarkurlshortner.azurewebsites.net/{{newURL}} </p>
 
           <button mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect  (click)="ShortenURL()" >Shorten!</button>
           <button  *ngIf="hasLink" mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect (click)="followLink()" >Follow Link</button>

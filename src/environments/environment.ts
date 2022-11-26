@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiRoot: 'https://tinyurlapi.azurewebsites.net/'
-  // apiRoot: 'https://localhost:44324/'
+  apiRoot: 'https://tinyurlapi.azurewebsites.net/',
+  railsApiRoot: 'https://ruby-test-api.herokuapp.com'
 };
 
 /*

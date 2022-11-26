@@ -6,3 +6,12 @@ export class TinyURL {
     this.tinyUrl = tinyUrl;
   }
 }
+
+
+export class shortenedUrl {
+  id: number;
+  shortUrl: string;
+  longUrl: string;
+  url: string;
+  shortenedUrl: string;
+}
