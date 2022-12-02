@@ -15,13 +15,8 @@ import { ToastrService } from 'ngx-toastr';
 export class ShortenURLComponent implements OnInit {
 
   public url = '';
-  public api = ".NET"
   public newURL: string;
   public hasLink = false;
- public apis = [
-    { api: '.NET' },
-    {  api: 'RUBY'}
-];
 
   public loading = false;
   private error: string;
@@ -32,7 +27,6 @@ export class ShortenURLComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService) {
 
-      sessionStorage.setItem("API", ".NET");
     }
 
   ngOnInit( ) { this.url = ''; }
@@ -51,8 +45,6 @@ export class ShortenURLComponent implements OnInit {
       // and then encode it so it can't pass unwanted characters to the server
       this.url = this.url.replace(/^https?:\/\//, '');
       const encodedUrl = encodeURIComponent(this.url);
-
-      if(sessionStorage.getItem("API") == "RUBY"){
         this.shortenURL.convertToShortUrlRails(encodedUrl).subscribe(
           res => {
             this.newURL = res.shortUrl;
@@ -65,29 +57,6 @@ export class ShortenURLComponent implements OnInit {
           }
         );
       }
-      else{
-        this.shortenURL.convertToShortUrl(encodedUrl).subscribe(
-        res => {
-          this.newURL = res.tinyUrl;
-          this.hasLink = true;
-          this.loading = false;
-        },
-        error => {
-          this.toastr.error('Opps!', 'Failed Shrinking URL');
-          this.loading = false;
-        }
-      );
-
-      }
-      
-
-
-    }
-
-  }
-
-  recordChange(){
-    sessionStorage.setItem("API", this.api);
   }
 
   followLink() {

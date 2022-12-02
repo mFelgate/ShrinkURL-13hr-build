@@ -1,12 +1,6 @@
 
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary" [containerInside]="false">
     <mdb-navbar-brand><a class="navbar-brand" href="#">Shorten URL</a></mdb-navbar-brand>
-    <div class="navbar-nav ml-auto">
-      <select (change)="recordChange()" class="nav-item  mdbWavesEffect browser-default custom-select"  class="form-control" [(ngModel)]="api">
-        <option *ngFor= "let api of apis" [ngValue]="api.api">{{api.api}}</option>
-      </select>
-    </div>
-
 </mdb-navbar>
 
 <div class = "container">
